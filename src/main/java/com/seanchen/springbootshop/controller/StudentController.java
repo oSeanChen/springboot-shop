@@ -1,4 +1,4 @@
-package com.seanchen.springbootshop;
+package com.seanchen.springbootshop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
