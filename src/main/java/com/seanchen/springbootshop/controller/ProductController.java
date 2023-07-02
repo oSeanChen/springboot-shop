@@ -1,5 +1,6 @@
 package com.seanchen.springbootshop.controller;
 
+import com.seanchen.springbootshop.constant.ProductCategory;
 import com.seanchen.springbootshop.dto.ProductRequest;
 import com.seanchen.springbootshop.model.Product;
 import com.seanchen.springbootshop.service.ProductService;
@@ -19,8 +20,8 @@ public class ProductController {
 
 
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getProducts() {
-       List<Product> productList = productService.getProducts();
+    public ResponseEntity<List<Product>> getProducts(@RequestParam ProductCategory category) {
+       List<Product> productList = productService.getProducts(category);
 
        return ResponseEntity.status(HttpStatus.OK).body(productList);
     }
