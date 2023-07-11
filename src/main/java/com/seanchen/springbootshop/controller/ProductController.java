@@ -1,6 +1,7 @@
 package com.seanchen.springbootshop.controller;
 
 import com.seanchen.springbootshop.constant.ProductCategory;
+import com.seanchen.springbootshop.dto.ProductQueryParams;
 import com.seanchen.springbootshop.dto.ProductRequest;
 import com.seanchen.springbootshop.model.Product;
 import com.seanchen.springbootshop.service.ProductService;
@@ -23,8 +24,13 @@ public class ProductController {
     public ResponseEntity<List<Product>> getProducts(
             @RequestParam(required = false) ProductCategory category,
             @RequestParam(required = false) String search
+
     ) {
-        List<Product> productList = productService.getProducts(category, search);
+        ProductQueryParams productQueryParams = new ProductQueryParams();
+        productQueryParams.setCategory(category);
+        productQueryParams.setSearch(search);
+
+        List<Product> productList = productService.getProducts(productQueryParams);
 
         return ResponseEntity.status(HttpStatus.OK).body(productList);
     }
