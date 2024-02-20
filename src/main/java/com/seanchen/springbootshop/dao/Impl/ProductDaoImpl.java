@@ -89,7 +89,7 @@ public class ProductDaoImpl implements ProductDao {
         map.put("imageUrl", productRequest.getImageUrl());
         map.put("price", productRequest.getPrice());
         map.put("stock", productRequest.getStock());
-        map.put("description", productRequest.getStock());
+        map.put("description", productRequest.getDescription());
 
         Date now = new Date();
         map.put("createdDate", now);
