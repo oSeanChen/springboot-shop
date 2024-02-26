@@ -257,4 +257,12 @@ public class ProductControllerTest {
                 .andExpect(jsonPath("$.results[0].productId", equalTo(5)))
                 .andExpect(jsonPath("$.results[1].productId", equalTo(4)));
     }
+
+    @Test
+    public void test() {
+        for (int i = 66; i >= 58 ; i-=2) {
+            System.out.println(i);
+
+        }
+    }
 }

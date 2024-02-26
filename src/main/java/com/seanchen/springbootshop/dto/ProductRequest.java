@@ -3,7 +3,6 @@ package com.seanchen.springbootshop.dto;
 import com.seanchen.springbootshop.constant.ProductCategory;
 
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 public class ProductRequest {
 
@@ -65,5 +64,10 @@ public class ProductRequest {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public static class UserRegisterRequest {
+        private String email;
+        private String password;
     }
 }

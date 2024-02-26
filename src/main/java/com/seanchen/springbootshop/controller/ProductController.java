@@ -6,6 +6,8 @@ import com.seanchen.springbootshop.dto.ProductRequest;
 import com.seanchen.springbootshop.model.Product;
 import com.seanchen.springbootshop.service.ProductService;
 import com.seanchen.springbootshop.util.Page;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,8 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @GetMapping("/products")
     public ResponseEntity<Page<Product>> getProducts(
@@ -48,6 +52,8 @@ public class ProductController {
 
         // get product list
         List<Product> productList = productService.getProducts(productQueryParams);
+
+        logger.info(productList.toString());
 
         // get product total
         Integer total = productService.countProduct(productQueryParams);
