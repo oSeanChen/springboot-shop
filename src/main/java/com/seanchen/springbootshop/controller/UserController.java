@@ -1,5 +1,6 @@
 package com.seanchen.springbootshop.controller;
 
+import com.seanchen.springbootshop.dto.UserLoginRequest;
 import com.seanchen.springbootshop.dto.UserRegisterRequest;
 import com.seanchen.springbootshop.model.User;
 import com.seanchen.springbootshop.service.UserService;
@@ -19,10 +20,17 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/user/register")
+    @PostMapping("/users/register")
     public ResponseEntity<User> register(@RequestBody @Valid UserRegisterRequest userRegisterRequest) {
         Integer userId = userService.register(userRegisterRequest);
         User user = userService.getUser(userId);
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
+    }
+
+    @PostMapping("/users/login")
+    public ResponseEntity<User> login(@RequestBody @Valid UserLoginRequest userLoginRequest) {
+        User user = userService.login(userLoginRequest);
+
+        return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 }

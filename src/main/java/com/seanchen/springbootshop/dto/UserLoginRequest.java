@@ -3,11 +3,12 @@ package com.seanchen.springbootshop.dto;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-public class UserRegisterRequest {
+public class UserLoginRequest {
 
     @NotBlank
     @Email
     private String email;
+
     @NotBlank
     private String password;
 
